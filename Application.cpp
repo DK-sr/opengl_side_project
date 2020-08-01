@@ -128,8 +128,6 @@ int main(void)
     
 
     ShaderProgramSource source = ParseShader("Basic.shader");
-    std::cout << source.vertex_source << std::endl;
-    std::cout << source.fragment_source << std::endl;
 
     unsigned int shader = CreateShader(source.vertex_source, source.fragment_source);
     glUseProgram(shader);
