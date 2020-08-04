@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\Basic.shader">
+    <None Include="res\shaders\Basic.glsl">
       <Filter>리소스 파일\shaders</Filter>
     </None>
   </ItemGroup>

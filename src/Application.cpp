@@ -160,7 +160,7 @@ int main(void)
     GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW));
     
 
-    ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
+    ShaderProgramSource source = ParseShader("res/shaders/Basic.glsl");
 
     unsigned int shader = CreateShader(source.vertex_source, source.fragment_source);
     GLCall(glUseProgram(shader));
