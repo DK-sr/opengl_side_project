@@ -4,8 +4,12 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <memory>
 
 #include "Renderer.h"
+
+#include "IndexBuffer.h"
+#include "VertexBuffer.h"
 
 
 
@@ -127,26 +131,19 @@ int main(void)
     GLCall(glGenVertexArrays(1, &vao));
     GLCall(glBindVertexArray(vao));
 
-    unsigned int buffer;
-    GLCall(glGenBuffers(1, &buffer));
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
-    GLCall(glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), positions, GL_STATIC_DRAW));
+    std::unique_ptr<VertexBuffer> vb = std::make_unique<VertexBuffer>(positions, 4 * 2 * sizeof(float));
 
     GLCall(glEnableVertexAttribArray(0));
     GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
 
-    unsigned int ibo;
-    GLCall(glGenBuffers(1, &ibo));
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
-    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW));
-    
+    std::unique_ptr<IndexBuffer>  ib = std::make_unique<IndexBuffer>(indices, 6);
 
     ShaderProgramSource source = ParseShader("res/shaders/Basic.glsl");
 
     unsigned int shader = CreateShader(source.vertex_source, source.fragment_source);
     GLCall(glUseProgram(shader));
-
-    GLCall(int location = glGetUniformLocation(shader, "u_Color"));
+    int location = -1;
+    GLCall(location = glGetUniformLocation(shader, "u_Color"));
     ASSERT(location != -1);
     GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
 
@@ -167,7 +164,7 @@ int main(void)
         GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
 
         GLCall(glBindVertexArray(vao));
-        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+        ib->Bind();
 
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
@@ -186,6 +183,8 @@ int main(void)
         glfwPollEvents();
     }
     glDeleteProgram(shader);
+    vb.reset();
+    ib.reset();
     glfwTerminate();
     return 0;
 }
