@@ -6,7 +6,7 @@ public:
 	~VertexBuffer();
 
 	void Bind() const;
-	void UnBind() const;
+	void Unbind() const;
 
 private:
 	unsigned int renderer_id_;
