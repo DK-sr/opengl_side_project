@@ -16,6 +16,12 @@
     <Filter Include="리소스 파일\shaders">
       <UniqueIdentifier>{22de33ee-958f-45aa-8805-880aaedd970a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\vender">
+      <UniqueIdentifier>{648bb02d-47fe-44c9-bb8d-c389b1e2f645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\vender\stb_image">
+      <UniqueIdentifier>{6a6c07e9-804f-4f82-89fc-2ee6d5ecc142}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -34,6 +40,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="src\Shader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\stb_image\stb_image.cpp">
+      <Filter>소스 파일\vender\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,6 +71,12 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="src\Shader.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\stb_image\stb_image.h">
+      <Filter>소스 파일\vender\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
