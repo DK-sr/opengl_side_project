@@ -11,8 +11,8 @@ Texture::Texture(const std::string& path)
 
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
 	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP));
-	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP));
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE));
+	GLCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE));
 
 	GLCall(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width_, height_, 0, GL_RGBA, GL_UNSIGNED_BYTE, local_buffer_));
 	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
@@ -24,12 +24,16 @@ Texture::Texture(const std::string& path)
 
 Texture::~Texture()
 {
+	GLCall(glDeleteTextures(1, &renderer_id_));
 }
 
 void Texture::Bind(unsigned int slot) const
 {
+	GLCall(glActiveTexture(GL_TEXTURE0 + slot));
+	GLCall(glBindTexture(GL_TEXTURE_2D, renderer_id_));
 }
 
 void Texture::Unbind() const
 {
+	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 }
