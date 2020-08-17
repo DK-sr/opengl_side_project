@@ -28,7 +28,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(940, 560, "GL STUDY", NULL, NULL);
+    window = glfwCreateWindow(960, 540, "GL STUDY", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -71,12 +71,16 @@ int main(void)
 
     std::unique_ptr<IndexBuffer> ib = std::make_unique<IndexBuffer>(indices, 6);
 
-    glm::mat4 proj = glm::ortho(0.0f, 940.0f, 0.0f, 560.0f, -1.0f, 1.0f);
+    glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
+    glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
+
+    glm::mat4 mvp = proj * view * model;
 
     std::unique_ptr<Shader> shader = std::make_unique<Shader>("res/shaders/Basic.glsl");
     shader->Bind();
     shader->SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
-    shader->SetUniformMat4f("u_MVP", proj);
+    shader->SetUniformMat4f("u_MVP", mvp);
 
     std::unique_ptr<Texture> texture = std::make_unique<Texture>("res/texture/sample.png");
     texture->Bind();
