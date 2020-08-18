@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\vender\stb_image">
       <UniqueIdentifier>{6a6c07e9-804f-4f82-89fc-2ee6d5ecc142}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\vender\imgui">
+      <UniqueIdentifier>{f2a1685d-4bb9-4e9c-9372-2886fba6cb6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -47,6 +50,24 @@
     </ClCompile>
     <ClCompile Include="src\Texture.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui_widgets.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui_impl_opengl3.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui_draw.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui_demo.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vender\imgui\imgui_impl_glfw.cpp">
+      <Filter>소스 파일\vender\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +99,30 @@
     </ClInclude>
     <ClInclude Include="src\Texture.h">
       <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imstb_truetype.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imstb_textedit.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imstb_rectpack.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imgui_internal.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imgui_impl_opengl3.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imgui.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imconfig.h">
+      <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vender\imgui\imgui_impl_glfw.h">
+      <Filter>소스 파일\vender\imgui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
