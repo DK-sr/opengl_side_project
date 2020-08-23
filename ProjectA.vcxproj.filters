@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\vender\imgui">
       <UniqueIdentifier>{f2a1685d-4bb9-4e9c-9372-2886fba6cb6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\tests">
+      <UniqueIdentifier>{ba5b8d7f-df41-4e45-b5d9-6967ce3b16da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="src\vender\imgui\imgui_impl_glfw.cpp">
       <Filter>소스 파일\vender\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Test.cpp">
+      <Filter>소스 파일\tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="src\vender\imgui\imgui_impl_glfw.h">
       <Filter>소스 파일\vender\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Test.h">
+      <Filter>소스 파일\tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
