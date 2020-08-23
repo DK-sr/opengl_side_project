@@ -72,7 +72,7 @@
     <ClCompile Include="src\vender\imgui\imgui_impl_glfw.cpp">
       <Filter>소스 파일\vender\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Test.cpp">
+    <ClCompile Include="src\tests\TestClearColor.cpp">
       <Filter>소스 파일\tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,6 +131,9 @@
       <Filter>소스 파일\vender\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Test.h">
+      <Filter>소스 파일\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tests\TestClearColor.h">
       <Filter>소스 파일\tests</Filter>
     </ClInclude>
   </ItemGroup>
